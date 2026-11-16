@@ -1,0 +1,8 @@
+.env
+books/
+__pycache__/
+*_normalized.html
+*_manifest.json
+originalepubs/
+*.epub
+.DS_Store
