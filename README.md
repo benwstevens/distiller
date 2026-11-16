@@ -4,6 +4,10 @@
 
 The result is a paraphrase in Claude's words. For a shortened edition made only of the author's own sentences, see [abridger](https://github.com/benwstevens/abridger).
 
+## Using it with an AI assistant
+
+If you would rather have an AI assistant set this up and run it with you, tell it to read [AGENTS.md](AGENTS.md). It covers the commands, the points where the script stops to ask you something, the cost, and what to do when a run fails.
+
 ## Prerequisites
 
 - **Python 3.10+**
