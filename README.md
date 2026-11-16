@@ -57,7 +57,7 @@ books/
 
 ## Prep tools
 
-Both are optional.
+All three are optional.
 
 ### splitready.py: fix an EPUB whose chapters do not split cleanly
 
@@ -78,6 +78,21 @@ python3 papercopyprep.py scanned.pdf --title "The Book Title" --author "Author N
 ```
 
 If the PDF is image-only, run OCR first, for example with `ocrmypdf scanned.pdf searchable.pdf`. Check the EPUB before distilling it, since OCR quality varies.
+
+### text_to_md.py: start from rough plain text
+
+If all you have is plain text (a Project Gutenberg `.txt`, an OCR dump, text pasted out of a PDF), this cleans it into markdown and writes an HTML file the distiller can read:
+
+```bash
+python3 text_to_md.py rough.txt --html
+python3 distiller.py rough.html
+```
+
+It rejoins hard-wrapped lines, mends words hyphenated across lines, removes the Project Gutenberg header and bare page numbers, and guesses the chapter headings. Read the chapter list it prints. If the chapters are wrong, open `rough.md`, fix the `# ` heading lines by hand, and run it again on the `.md`:
+
+```bash
+python3 text_to_md.py rough.md --html
+```
 
 ## Customizing the instructions
 
@@ -104,5 +119,6 @@ distiller_instructions.txt            # prompt for the per-chapter pass
 distiller_coherence_instructions.txt  # prompt for the coherence pass
 splitready.py                         # EPUB structure fixer (optional prep)
 papercopyprep.py                      # scanned PDF to EPUB (optional prep)
+text_to_md.py                         # rough plain text to markdown and HTML (optional prep)
 requirements.txt
 ```
